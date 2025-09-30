@@ -80,11 +80,12 @@ app.use((req, res, next) => {
 
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
-app.use("/", userRouter);
 
 app.get("/", (req, res) => {
   res.redirect("/listings");
 });
+
+app.use("/", userRouter);
 
 //Error if route not found
 app.use((req, res, next) => {
